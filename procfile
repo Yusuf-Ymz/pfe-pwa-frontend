@@ -1,1 +1,1 @@
-release: chmod u+x config.sh && ./config.sh
+web: chmod u+x config.sh && ./config.sh

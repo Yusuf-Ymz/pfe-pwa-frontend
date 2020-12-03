@@ -4,7 +4,8 @@
   "scripts": {
     "heroku-postbuild": "ng build --configuration=$ENV",
     "ng": "ng",
-    "start": "http-server dist/pfe-pwa-frontend -o -p 5000 -c-1",
+    "serve": "http-server dist/pfe-pwa-frontend -o -p 5000 -c-1",
+    "start": "node server.js",
     "build": "ng build --prod",
     "test": "ng test",
     "lint": "ng lint",
@@ -21,6 +22,7 @@
     "@angular/platform-browser-dynamic": "~10.1.6",
     "@angular/router": "~10.1.6",
     "@angular/service-worker": "~10.1.6",
+    "express": "^4.17.1",
     "http-server": "^0.12.3",
     "rxjs": "~6.6.0",
     "tslib": "^2.0.0",

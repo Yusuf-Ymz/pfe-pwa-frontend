@@ -2,10 +2,10 @@
   "name": "pfe-pwa-frontend",
   "version": "0.0.0",
   "scripts": {
+    "postinstall": "echo ${ENV};ng build --configuration ${ENV}",
     "ng": "ng",
     "serve": "http-server dist/pfe-pwa-frontend -o -p 5000 -c-1",
     "start": "node server.js",
-    "build": "ng build --configuration ${ENV}",
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e"

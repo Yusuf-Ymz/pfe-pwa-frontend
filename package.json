@@ -2,10 +2,10 @@
   "name": "pfe-pwa-frontend",
   "version": "0.0.0",
   "scripts": {
-    "heroku-postbuild": "chmod 777 config.sh && ./config.sh",
+    "heroku-postbuild": "ng build",
     "ng": "ng",
     "serve": "http-server dist/pfe-pwa-frontend -o -p 5000 -c-1",
-    "start": "./config.sh && node server.js",
+    "start": "node server.js",
     "build": "ng build --prod",
     "test": "ng test",
     "lint": "ng lint",

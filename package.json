@@ -2,7 +2,7 @@
   "name": "pfe-pwa-frontend",
   "version": "0.0.0",
   "scripts": {
-    "heroku-postbuild": "ng build",
+    "postinstall": "ng build --configuration=${ENV}",
     "ng": "ng",
     "serve": "http-server dist/pfe-pwa-frontend -o -p 5000 -c-1",
     "start": "node server.js",
@@ -42,7 +42,7 @@
     "@angular/compiler-cli": "~10.1.6",
     "@types/jasmine": "~3.5.0",
     "@types/jasminewd2": "~2.0.3",
-    "@types/node": "^12.11.1",
+    "@types/node": "^12.19.8",
     "codelyzer": "^6.0.0",
     "jasmine-core": "~3.6.0",
     "jasmine-spec-reporter": "~5.0.0",

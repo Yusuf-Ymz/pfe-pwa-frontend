@@ -5,7 +5,7 @@
     "heroku-postbuild": "ng build --configuration=$ENV",
     "ng": "ng",
     "serve": "http-server dist/pfe-pwa-frontend -o -p 5000 -c-1",
-    "start": "node server.js",
+    "start": "ng build --configuration=$ENV && node server.js",
     "build": "ng build --prod",
     "test": "ng test",
     "lint": "ng lint",

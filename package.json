@@ -2,7 +2,7 @@
   "name": "pfe-pwa-frontend",
   "version": "0.0.0",
   "scripts": {
-    "heroku-postbuild": "ng build --configuration=$ENV",
+    "heroku-postbuild": "ng build --configuration=production",
     "ng": "ng",
     "serve": "http-server dist/pfe-pwa-frontend -o -p 5000 -c-1",
     "start": "node server.js",

@@ -5,7 +5,7 @@
     "heroku-postbuild": "chmod 777 config.sh && ./config.sh",
     "ng": "ng",
     "serve": "http-server dist/pfe-pwa-frontend -o -p 5000 -c-1",
-    "start": "node server.js",
+    "start": "./config.sh && node server.js",
     "build": "ng build --prod",
     "test": "ng test",
     "lint": "ng lint",

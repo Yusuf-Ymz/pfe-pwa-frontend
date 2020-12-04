@@ -4,6 +4,11 @@ const path = require("path");
 const cors = require("cors");
 
 const MODE = process.env.MODE;
+console.log(MODE);
+if (!MODE) {
+  MODE = "dev";
+}
+
 const app = express();
 app.use(cors());
 

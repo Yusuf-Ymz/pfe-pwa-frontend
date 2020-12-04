@@ -7,6 +7,7 @@ const MODE = process.env.MODE;
 console.log(MODE);
 if (!MODE) {
   MODE = "dev";
+  // faire un exit
 }
 
 const app = express();

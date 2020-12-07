@@ -2,7 +2,7 @@
 const express = require("express");
 const path = require("path");
 const cors = require("cors");
-const enforce = require('express-sslify');
+const enforce = require("express-sslify");
 
 const MODE = process.env.MODE;
 console.log(MODE);
@@ -17,7 +17,7 @@ app.use(cors());
 app.use(express.static(__dirname + `/dist/pfe-pwa-frontend-${MODE}`));
 
 // Force redirect HTTP to HTTPS on heroku
-if (MODE === "prod")
+if (MODE === "prod" || MODE === "dev")
   app.use(enforce.HTTPS({ trustXForwardedHostHeader: true }));
 
 // Serve index.html file

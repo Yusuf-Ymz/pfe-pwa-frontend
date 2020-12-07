@@ -2,6 +2,7 @@
 const express = require("express");
 const path = require("path");
 const cors = require("cors");
+const enforce = require('express-sslify');
 
 const MODE = process.env.MODE;
 console.log(MODE);

@@ -14,9 +14,14 @@ const app = express();
 app.use(cors());
 
 // Serve only the static files form the dist directory
-
 app.use(express.static(__dirname + `/dist/pfe-pwa-frontend-${MODE}`));
 
+// Force redirect HTTP to HTTPS
+app.get("*", function (req, res) {
+  res.redirect("https://" + req.headers.host + req.url);
+});
+
+// Serve index.html file
 app.get("/*", function (req, res) {
   res.sendFile(
     path.join(__dirname + `/dist/pfe-pwa-frontend-${MODE}/index.html`)

@@ -19,15 +19,6 @@ export class AppComponent {
 
   qrResultString: string;
 
-	// Force redirect HTTP to HTTPS when in production mode
-	OnInit() {
-    if (environment.production) {
-      if (location.protocol === 'http:') {
-        window.location.href = location.href.replace('http', 'https');
-      }
-    }
-  }
-
   clearResult(): void {
     this.qrResultString = null;
   }

@@ -18,7 +18,9 @@ app.use(express.static(__dirname + `/dist/pfe-pwa-frontend-${MODE}`));
 
 // Force redirect HTTP to HTTPS
 app.get("*", function (req, res) {
-  res.redirect("https://" + req.headers.host + req.url);
+  if (req.headers["x-forwarded-proto"] !== "https")
+    return res.redirect("https://" + req.headers.host + req.url);
+  else return next();
 });
 
 // Serve index.html file

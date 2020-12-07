@@ -1,6 +1,7 @@
 import { OnInit, ViewChild } from '@angular/core';
 import { Component } from '@angular/core';
 import { ZXingScannerComponent } from '@zxing/ngx-scanner';
+import { environment } from 'src/environments/environment'
 
 @Component({
   selector: 'app-root',
@@ -17,6 +18,15 @@ export class AppComponent {
   activated: boolean = false;
 
   qrResultString: string;
+
+	// Force redirect HTTP to HTTPS when in production mode
+	OnInit() {
+    if (environment.production) {
+      if (location.protocol === 'http:') {
+        window.location.href = location.href.replace('http', 'https');
+      }
+    }
+  }
 
   clearResult(): void {
     this.qrResultString = null;

@@ -6,8 +6,7 @@ const cors = require("cors");
 const MODE = process.env.MODE;
 console.log(MODE);
 if (!MODE) {
-  MODE = "dev";
-  // faire un exit
+  MODE = "local";
 }
 
 const app = express();
@@ -16,11 +15,9 @@ app.use(cors());
 // Serve only the static files form the dist directory
 app.use(express.static(__dirname + `/dist/pfe-pwa-frontend-${MODE}`));
 
-// Force redirect HTTP to HTTPS
-app.get("*", function (req, res) {
-  if (req.secure) return next();
-  return res.redirect("https://" + req.headers.host + req.url);
-});
+// Force redirect HTTP to HTTPS on heroku
+if (MODE === "prod")
+  app.use(enforce.HTTPS({ trustXForwardedHostHeader: true }));
 
 // Serve index.html file
 app.get("/*", function (req, res) {

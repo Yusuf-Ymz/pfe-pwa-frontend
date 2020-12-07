@@ -1,8 +1,15 @@
-<zxing-scanner #scanner *ngIf="activated" (scanSuccess)="onCodeResult($event)"></zxing-scanner>
-
+<app-navbar></app-navbar>
+<img *ngIf="activated" (click)="deactivate()" id="close" src="../assets/close.svg" title="fermer">
+<zxing-scanner
+  #scanner
+  *ngIf="activated"
+  (scanSuccess)="onCodeResult($event)"
+></zxing-scanner>
+<!-- 
 <button (click)="activate()">Activate</button>
-<button (click)="deactivate()">Deactivate</button>
+<button (click)="deactivate()">Deactivate</button>  -->
 
+<img id="scanner" src="../assets/qr-code-scan.svg" (click)="activate()" title="scanner" />
 <section class="results" *ngIf="qrResultString">
   <div>
     <small>Result</small>

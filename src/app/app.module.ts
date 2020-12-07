@@ -6,15 +6,19 @@ import { AppComponent } from './app.component';
 import { ServiceWorkerModule } from '@angular/service-worker';
 import { environment } from '../environments/environment';
 import { ZXingScannerModule } from '@zxing/ngx-scanner';
+import { NavbarComponent } from './components/navbar/navbar.component';
+import { MaterialModule } from './modules/material/material.module';
 
 @NgModule({
   declarations: [
+    NavbarComponent,
     AppComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     ZXingScannerModule,
+    MaterialModule,
     ServiceWorkerModule.register('ngsw-worker.js', { enabled: true })
   ],
   providers: [],

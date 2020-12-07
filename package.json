@@ -4,7 +4,7 @@
   "scripts": {
     "ng": "ng",
     "build": "ng build --configuration dev --outputPath=dist/pfe-pwa-frontend-dev && ng build --configuration production --outputPath=dist/pfe-pwa-frontend-prod",
-    "serve": "http-server dist/pfe-pwa-frontend -o -p 5000 -c-1",
+    "serve": "http-server-spa dist/pfe-pwa-frontend/ index.html 8081",
     "start": "node server.js",
     "test": "ng test",
     "lint": "ng lint",

@@ -9,6 +9,7 @@ import { NavbarComponent } from './components/navbar/navbar.component';
 import { MaterialModule } from './modules/material/material.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ScannerComponent } from './components/scanner/scanner.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -17,6 +18,7 @@ import { ScannerComponent } from './components/scanner/scanner.component';
     AppComponent
   ],
   imports: [
+    HttpClientModule,
     BrowserModule,
     AppRoutingModule,
     ZXingScannerModule,

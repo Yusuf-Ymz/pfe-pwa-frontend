@@ -1,7 +1,9 @@
+import { HttpClient } from '@angular/common/http';
 import { ViewChild } from '@angular/core';
 import { Injectable, OnDestroy } from '@angular/core';
 import { Component, OnInit } from '@angular/core';
 import { ZXingScannerComponent } from '@zxing/ngx-scanner';
+import { ScannerService } from '../../services/scanner.service';
 
 @Component({
   selector: 'app-scanner',
@@ -20,13 +22,25 @@ export class ScannerComponent {
 
   qrResultString: string;
 
+  constructor(private scannerService: ScannerService) {
+
+  }
+
   clearResult(): void {
     this.qrResultString = null;
   }
 
-  onCodeResult(resultString: string) {
+  onCodeResult(qrString: string) {
+    console.log(qrString)
+    if (qrString.includes("type")) {
+      const qrDoctor = JSON.parse(qrString);
+      this.scannerService.scanDoctor(qrDoctor);
+    }
+    else {
+      this.scannerService.scanLocation(qrString);
+    }
     this.activated = false;
-    this.qrResultString = resultString;
+    this.qrResultString = qrString;
     this.scanner.enable = false;
   }
 

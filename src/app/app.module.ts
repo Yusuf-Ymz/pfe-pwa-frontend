@@ -10,6 +10,7 @@ import { MaterialModule } from './modules/material/material.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ScannerComponent } from './components/scanner/scanner.component';
 import { HttpClientModule } from '@angular/common/http';
+import { ToastrModule } from 'ngx-toastr';
 
 @NgModule({
   declarations: [
@@ -23,6 +24,7 @@ import { HttpClientModule } from '@angular/common/http';
     AppRoutingModule,
     ZXingScannerModule,
     MaterialModule,
+    ToastrModule.forRoot({positionClass: 'toast-bottom-right'}),
     ServiceWorkerModule.register('ngsw-worker.js', { enabled: true }),
     BrowserAnimationsModule
   ],

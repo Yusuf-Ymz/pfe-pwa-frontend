@@ -2,21 +2,21 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpResponse, HttpErrorResponse, HttpHeaders } from '@angular/common/http';
 import { Router } from '@angular/router';
 import { environment } from '../../environments/environment';
+import { ToastrModule, ToastrService } from 'ngx-toastr';
 
 @Injectable({
     providedIn: 'root'
 })
 export class AuthentificationService {
 
-    constructor(private http: HttpClient) { }
+    constructor(private http: HttpClient, private toastr: ToastrService) { }
 
     //TODO check content to send, device token(firebase) ?
     authenticate() {
-        console.log("register")
         this.http.post<any>(environment.serverUrl + 'citizens', {})
-            .subscribe((response) => { console.log(response); localStorage.setItem('token', response.token); }),
+            .subscribe((response) => { localStorage.setItem('token', response.token); this.toastr.success("Vous avez été enregistré") }),
             (error: HttpErrorResponse) => {
-                console.log(error.error.message)
+                this.toastr.error("Une erreur est survenu lors de l'enregistrement")
             }
     }
 }

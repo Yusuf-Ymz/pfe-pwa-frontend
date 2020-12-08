@@ -20,18 +20,11 @@ export class ScannerComponent {
 
   activated: boolean = false;
 
-  qrResultString: string;
-
   constructor(private scannerService: ScannerService) {
 
   }
 
-  clearResult(): void {
-    this.qrResultString = null;
-  }
-
   onCodeResult(qrString: string) {
-    console.log(qrString)
     if (qrString.includes("type")) {
       const qrDoctor = JSON.parse(qrString);
       this.scannerService.scanDoctor(qrDoctor);
@@ -40,7 +33,6 @@ export class ScannerComponent {
       this.scannerService.scanLocation(qrString);
     }
     this.activated = false;
-    this.qrResultString = qrString;
     this.scanner.enable = false;
   }
 

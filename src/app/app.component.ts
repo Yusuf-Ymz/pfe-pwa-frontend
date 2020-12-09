@@ -40,7 +40,10 @@ export class AppComponent implements OnInit {
      this.afMessaging.requestToken
       .subscribe((token) => {
         this.firebase_token = token;
-        this.authenticate();
+        if(token !== null)
+          this.authenticate();
+        else
+          this.toastr.warning("Activez les notifications pour pouvoir utiliser l'appli")
       },
         (error) => { console.error(error); },
       );

@@ -30,9 +30,8 @@ export class AppComponent implements OnInit {
 
   listen() {
     this.afMessaging.messages
-      .subscribe((message) => {
-        console.log(message);
-        this.toastr.info(JSON.stringify(message));
+      .subscribe((message:any) => {
+        this.toastr.warning(message.notification.body,message.notification.title);
       }
       );
   }
@@ -40,7 +39,6 @@ export class AppComponent implements OnInit {
   requestPermission(): void {
      this.afMessaging.requestToken
       .subscribe((token) => {
-        console.log('Permission granted! Save to the server!', token);
         this.firebase_token = token;
         this.authenticate();
       },

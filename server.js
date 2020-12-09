@@ -5,7 +5,6 @@ const cors = require("cors");
 const enforce = require("express-sslify");
 
 let MODE = process.env.MODE;
-console.log(MODE);
 if (!MODE) {
   MODE = "local";
 }

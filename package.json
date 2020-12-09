@@ -7,7 +7,9 @@
     "build-local": "ng build --configuration local --outputPath=dist/pfe-pwa-frontend-local",
     "serve-local": "http-server dist/pfe-pwa-frontend-local -o -p 5000 -c-1",
     "start": "node server.js",
-    "test": "ng test",
+    "test": "ng test --watch=false --browsers=ChromeHeadlessCustom",
+    "build:workflow": "ng build --configuration=dev",
+    "build:ci": "npm run test && npm run build:workflow",
     "lint": "ng lint",
     "e2e": "ng e2e"
   },

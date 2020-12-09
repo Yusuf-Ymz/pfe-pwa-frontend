@@ -16,7 +16,6 @@ import { AngularFirestoreModule } from '@angular/fire/firestore';
 import { AngularFireStorageModule } from '@angular/fire/storage';
 import { AngularFireAuthModule } from '@angular/fire/auth';
 import { AngularFireMessagingModule } from '@angular/fire/messaging';
-import { MessagingComponent } from './components/messaging/messaging.component';
 
 var firebaseConfig = {
   apiKey: "AIzaSyBTuPxWP530fsNAhScPZvnLsELdCYO2rog",
@@ -33,7 +32,6 @@ var firebaseConfig = {
     NavbarComponent,
     ScannerComponent,
     AppComponent,
-    MessagingComponent,
   ],
   imports: [
     HttpClientModule,

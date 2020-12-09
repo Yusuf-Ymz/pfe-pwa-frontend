@@ -16,10 +16,6 @@ export class AppComponent implements OnInit {
 
   constructor(private authentificationService: AuthentificationService, private toastr: ToastrService, private afMessaging: AngularFireMessaging) { }
 
-  // this.afMessaging.onMessage((payload) => { //affiche le message des qu'il le reçoit
-  //   console.log(payload);
-  // });
-
   listen() {
     console.log("listening")
     this.afMessaging.messages
@@ -32,11 +28,11 @@ export class AppComponent implements OnInit {
 
   ngOnInit(): void {
     this.requestPermission();
-    setTimeout(() => {
-      if (localStorage.getItem("token") === null) {
-        this.authentificationService.authenticate(this.firebase_token);
-      }
-    }, 2000);
+
+    if (localStorage.getItem("token") === null) {
+      this.authentificationService.authenticate(this.firebase_token);
+    }
+
     this.listen();
   }
 

@@ -14,6 +14,7 @@ export class AppComponent implements OnInit {
   title = 'pfe-pwa-frontend';
   firebase_token: string;
 
+  
   constructor(private authentificationService: AuthentificationService, private toastr: ToastrService, private afMessaging: AngularFireMessaging) { }
 
   ngOnInit(): void {

@@ -8,12 +8,16 @@ import { ToastrModule, ToastrService } from 'ngx-toastr';
     providedIn: 'root'
 })
 export class AuthentificationService {
+    citizen:any;
 
     constructor(private http: HttpClient, private toastr: ToastrService) { }
 
-    //TODO check content to send, device token(firebase) ?
-    authenticate() {
-        this.http.post<any>(environment.serverUrl + 'citizens', {})
+    authenticate(firebase_token: string) {        
+        this.citizen = {    
+            notification_token: firebase_token
+        };
+        
+        this.http.post<any>(environment.serverUrl + 'citizens', this.citizen)
             .subscribe((response) => { localStorage.setItem('token', response.token); this.toastr.success("Vous avez été enregistré") }),
             (error: HttpErrorResponse) => {
                 this.toastr.error("Une erreur est survenu lors de l'enregistrement")

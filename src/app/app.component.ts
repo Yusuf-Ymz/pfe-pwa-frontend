@@ -13,22 +13,23 @@ import { mergeMapTo } from 'rxjs/operators';
 export class AppComponent implements OnInit {
   title = 'pfe-pwa-frontend';
   firebase_token: string;
-  
+
   constructor(private authentificationService: AuthentificationService, private toastr: ToastrService, private afMessaging: AngularFireMessaging) { }
-  
+
   // this.afMessaging.onMessage((payload) => { //affiche le message des qu'il le reçoit
   //   console.log(payload);
   // });
-  
+
   listen() {
+    console.log("listening")
     this.afMessaging.messages
-      .subscribe((message) => { 
-        console.log(message); 
+      .subscribe((message) => {
+        console.log(message);
         this.toastr.info(JSON.stringify(message));
       }
-    );
+      );
   }
-  
+
   ngOnInit(): void {
     this.requestPermission();
     setTimeout(() => {
@@ -41,11 +42,11 @@ export class AppComponent implements OnInit {
 
   requestPermission(): void {
     this.afMessaging.requestToken
-      .subscribe((token) => { 
-        console.log('Permission granted! Save to the server!', token); 
+      .subscribe((token) => {
+        console.log('Permission granted! Save to the server!', token);
         this.firebase_token = token;
       },
-        (error) => { console.error(error); },  
+        (error) => { console.error(error); },
       );
   }
 }

@@ -13,3 +13,8 @@ var firebaseConfig = {
 
 firebase.initializeApp(firebaseConfig);
 const messaging = firebase.messaging();
+messaging.setBackgroundMessageHandler((payload) => {
+    
+    console.log("background",payload);
+    return self.ServiceWorkerRegistration.showNotification(payload)
+})
